@@ -36,33 +36,49 @@ class _WelcomeAnimatedState extends State<WelcomeAnimated>
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          DefaultTextStyle(
-            style: const TextStyle(
-                color: Colors.white, fontSize: 28, fontWeight: FontWeight.w900),
-            child: AnimatedTextKit(
-              animatedTexts: [
-                RotateAnimatedText('What Are You Craving\nFor Today?',
-                    rotateOut: false),
-              ],
-              isRepeatingAnimation: false,
-              totalRepeatCount: 1,
-              displayFullTextOnTap: true,
-              stopPauseOnTap: true,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Container(
+          padding:
+              EdgeInsets.only(left: MediaQuery.of(context).size.width / 12),
+          child: Row(children: [
+            DefaultTextStyle(
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 28,
+                  fontWeight: FontWeight.w900),
+              child: AnimatedTextKit(
+                animatedTexts: [
+                  RotateAnimatedText('What Are You Craving\nFor Today?',
+                      rotateOut: false),
+                ],
+                isRepeatingAnimation: false,
+                totalRepeatCount: 1,
+                displayFullTextOnTap: true,
+                stopPauseOnTap: true,
+              ),
             ),
-          ),
-          SizedBox(height: MediaQuery.of(context).size.height / 64),
-          FadeTransition(
+          ]),
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height / 128),
+        Container(
+          padding:
+              EdgeInsets.only(left: MediaQuery.of(context).size.width / 12),
+          child: FadeTransition(
             opacity: _animation,
             child: ElevatedButton(
-                onPressed: () {}, child: const Text("Start Exploring")),
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+              child: const Text(
+                "Start Exploring",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+              ),
+            ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
