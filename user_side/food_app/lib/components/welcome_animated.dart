@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:food_app/pages/login_page.dart';
 
 class WelcomeAnimated extends StatefulWidget {
   const WelcomeAnimated({Key? key}) : super(key: key);
@@ -69,7 +70,10 @@ class _WelcomeAnimatedState extends State<WelcomeAnimated>
           child: FadeTransition(
             opacity: _animation,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: ((context) => LoginPage())));
+              },
               style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
               child: const Text(
                 "Start Exploring",
